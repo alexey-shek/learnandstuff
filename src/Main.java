@@ -5,7 +5,7 @@ public class Main {
         HTML page = new HTML();
 
         page.scrape(cn.connection("http://l3x4.de/test/test.html"));
-
+        //page.scrape(cn.connection("https://github.com/alexey-shek/learnandstuff/tree/master/src"));
 
 
         //StringBuilder sb = new StringBuilder();
