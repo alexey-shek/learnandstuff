@@ -7,6 +7,7 @@ public class Main {
         page.scrape(cn.connection("http://l3x4.de/test/test.html"));
 
 
+
         //StringBuilder sb = new StringBuilder();
         //sb.append(cn.connection("https://css-tricks.com/almanac/"));
         //System.out.println(sb);

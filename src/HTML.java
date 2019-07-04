@@ -17,8 +17,6 @@ public class HTML {
         }
 
 
-
-
         //countDomain2(getDomain(element));
     }
 
