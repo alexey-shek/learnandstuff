@@ -4,7 +4,7 @@ public class Main {
         Connect cn = new Connect();
         HTML page = new HTML();
 
-        page.getHtml(cn.connection("https://www.t-online.de/nachrichten/"));
+        page.scrape(cn.connection("http://l3x4.de/test/test.html"));
 
 
         //StringBuilder sb = new StringBuilder();
