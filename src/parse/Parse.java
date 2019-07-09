@@ -19,7 +19,7 @@ public class Parse {
         Set<String> output = new HashSet<>();
 
 
-        for (Object url: arrayList) {
+        for (String url: arrayList) {
             output.add("Die URL: "+url+" kommt "+countDomain(arrayList,url)+" mal vor.");
 
         }
@@ -35,8 +35,8 @@ public class Parse {
 
 
 
-    private static ArrayList getDomain(Elements element){
-        ArrayList<String> list = new ArrayList<>();
+    private static List<String> getDomain(Elements element){
+        List<String> list = new ArrayList<>();
 
         for (Element el : element.select("a")){
             if (el.attr("href").equals("")){
@@ -60,7 +60,7 @@ public class Parse {
     }
 
 
-    private static int countDomain(List<String> list, Object obj){
+    private static int countDomain(List<String> list, String obj){
         int counter = 0;
 
         //list.get(i) mit der for schleife vergleichen mit obj
