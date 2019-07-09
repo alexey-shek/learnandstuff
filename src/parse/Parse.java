@@ -1,43 +1,41 @@
+package parse;
+
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import java.util.*;
 
-public class HTML {
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Parse {
 
 
-    public void scrape(Document doc){
+    public static void scrape(Document doc){
         Elements element = doc.select("body");
-        ArrayList<String> arrayList;
-        arrayList = getDomain(element);
+        List<String> arrayList = getDomain(element);
 
         Set<String> output = new HashSet<>();
-        //countDomain(getDomain(element));
 
 
         for (Object url: arrayList) {
-            //System.out.println("Die URL: "+url+" kommt "+countDomain(arrayList,url)+" mal vor.");
             output.add("Die URL: "+url+" kommt "+countDomain(arrayList,url)+" mal vor.");
 
         }
 
         for (Object obj : output
              ) {
-            System.out.println(obj.toString());
+            System.out.println(obj);
         }
 
-        //countDomain2(getDomain(element));
-
-        for (int i = 0; i < arrayList.size(); i++) {
-            countDomain2(arrayList.get(i));
-        }
 
 
     }
 
 
 
-    private ArrayList getDomain(Elements element){
+    private static ArrayList getDomain(Elements element){
         ArrayList<String> list = new ArrayList<>();
 
         for (Element el : element.select("a")){
@@ -52,9 +50,6 @@ public class HTML {
                         .replace("http://", "")
                         .replaceAll("\\/.*",""));
                         //.replaceAll(".*?\\.(.*?\\.[a-zA-Z]+)",""));
-                Collections.sort(list);
-
-                //System.out.println(list);
             }
 
         }
@@ -65,7 +60,7 @@ public class HTML {
     }
 
 
-    private int countDomain(ArrayList list, Object obj){
+    private static int countDomain(List<String> list, Object obj){
         int counter = 0;
 
         //list.get(i) mit der for schleife vergleichen mit obj
@@ -77,17 +72,6 @@ public class HTML {
             }
         }
         return counter;
-    }
-
-    private void countDomain2(String list){
-        Set<String> set = new HashSet<>();
-        int counter = 0;
-
-            if (set.add(list) == false){
-                counter++;
-                System.out.println("duplikat");
-            }
-
     }
 
 }
