@@ -1,20 +1,17 @@
-package IO;
+package io;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.IOException;
-
-public class retrieveContent {
+public class ContentRetriever {
 
     public static Document getDocument(String url){
         Document doc = null;
         try {
             doc = Jsoup.connect(url).get();
-        }catch (IOException e){
+        }catch (Exception e){
             e.printStackTrace();
         }
-
         return doc;
     }
 
