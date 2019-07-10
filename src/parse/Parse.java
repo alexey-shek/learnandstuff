@@ -26,12 +26,7 @@ public class Parse {
         for (Object obj : output) {
             System.out.println(obj);
         }
-
-
-
     }
-
-
 
     private static List<String> beatifyUrl(Elements element){
         List<String> list = new ArrayList<>();
@@ -43,11 +38,8 @@ public class Parse {
             else {
                 list.add(el.attr("href").replaceAll("([a-z]*\\:\\/\\/)*(?:www.)*",""));
             }
-
         }
         System.out.println(list.size());
-
-
         return list;
     }
 

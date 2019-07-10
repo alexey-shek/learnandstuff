@@ -5,9 +5,9 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
-public class Connect {
+public class retrieveContent {
 
-    public static Document connection(String url){
+    public static Document getDocument(String url){
         Document doc = null;
         try {
             doc = Jsoup.connect(url).get();
