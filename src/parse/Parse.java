@@ -14,18 +14,16 @@ public class Parse {
 
     public static void parseHtml(Document doc){
         Elements element = doc.select("body");
-        List<String> arrayList = beatifyUrl(element);
+        List<String> urlList = beatifyUrl(element);
 
         Set<String> output = new HashSet<>();
 
 
-        for (String url: arrayList) {
-            output.add("Die URL: "+url+" kommt "+countDomain(arrayList,url)+" mal vor.");
-
+        for (String url: urlList) {
+            output.add("Die URL: "+url+" kommt "+countDomain(urlList,url)+" mal vor.");
         }
 
-        for (Object obj : output
-             ) {
+        for (Object obj : output) {
             System.out.println(obj);
         }
 
@@ -43,12 +41,7 @@ public class Parse {
                 continue;
             }
             else {
-                list.add(el.attr("href")
-                        .replace("https://www.","")
-                        .replace("http://www.","")
-                        .replace("https://","")
-                        .replace("http://", "")
-                        .replaceAll("\\/.*",""));
+                list.add(el.attr("href").replaceAll("([a-z]*\\:\\/\\/)*(?:www.)*",""));
             }
 
         }
