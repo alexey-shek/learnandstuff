@@ -12,7 +12,7 @@ public class retrieveContent {
         try {
             doc = Jsoup.connect(url).get();
         }catch (IOException e){
-            System.out.println("Fehler beim Zugriff auf die URL");
+            e.printStackTrace();
         }
 
         return doc;
