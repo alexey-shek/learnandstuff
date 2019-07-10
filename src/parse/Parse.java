@@ -12,9 +12,9 @@ import java.util.Set;
 public class Parse {
 
 
-    public static void scrape(Document doc){
+    public static void parseHtml(Document doc){
         Elements element = doc.select("body");
-        List<String> arrayList = getDomain(element);
+        List<String> arrayList = beatifyUrl(element);
 
         Set<String> output = new HashSet<>();
 
@@ -35,7 +35,7 @@ public class Parse {
 
 
 
-    private static List<String> getDomain(Elements element){
+    private static List<String> beatifyUrl(Elements element){
         List<String> list = new ArrayList<>();
 
         for (Element el : element.select("a")){
@@ -49,7 +49,6 @@ public class Parse {
                         .replace("https://","")
                         .replace("http://", "")
                         .replaceAll("\\/.*",""));
-                        //.replaceAll(".*?\\.(.*?\\.[a-zA-Z]+)",""));
             }
 
         }
@@ -63,12 +62,9 @@ public class Parse {
     private static int countDomain(List<String> list, String obj){
         int counter = 0;
 
-        //list.get(i) mit der for schleife vergleichen mit obj
-
         for (int i = 0; i < list.size(); i++) {
             if (obj.equals(list.get(i))){
                 counter++;
-                //System.out.println("duplikat");
             }
         }
         return counter;

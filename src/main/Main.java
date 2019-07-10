@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Parse.scrape(Connect.connection("http://l3x4.de/test/test.html"));
+        Parse.parseHtml(Connect.connection("http://l3x4.de/test/test.html"));
 
     }
 }
